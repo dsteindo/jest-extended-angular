@@ -18,6 +18,5 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     const { production } = environment;
     this.emitter.next(production);
-    console.log('Is production mode: ', production); 
   }
 }

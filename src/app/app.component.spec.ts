@@ -38,4 +38,12 @@ describe('AppComponent', () => {
     app.ngOnInit();
     expect(await firstValueFrom(app.emitter)).toBeFalse();
   });
+
+  it('should call emitter once on ngOnInit', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    jest.spyOn(app.emitter, 'next');
+    app.ngOnInit();
+    expect(app.emitter.next).toHaveBeenCalledOnceWith(false);
+  });
 });

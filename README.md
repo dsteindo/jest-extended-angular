@@ -75,3 +75,10 @@ Other stuff
   - tsconfig.json → removed "files" and added "paths" (they don't work co-existend for one reason or another)
   - jest.config.js → added module mappers so the paths added in tsconfig.json are resolved (as jest is not aware of paths on runtime)
   - added "jest-extended" to "types" in tsconfig.spec.json to ensure the extended matchers are recognized at compile time `ng test`
+
+Issue "toHaveBeenCalledOnceWith"
+- How do migrate this matcher? jest-extended has `toHaveBeenCalledExactlyOnceWith`
+- But what is if our project has this jasmine matcher in use 1000 times???
+- Solution: Extending jest-extended with "custom matchers" 
+  - File [matchers.d.ts](./src/matchers.d.ts) was created for namespace declaration which seems to satisfy the compiler and VS Code
+  - Updated file [testSetup.js](./testSetup.js) by providing the function for usage
