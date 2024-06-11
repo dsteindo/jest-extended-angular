@@ -26,4 +26,8 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Hello, jest-extended-angular');
   });
+
+  it('should apply jest-extended matcher', () => {
+    expect(true).toBeTrue();
+  })
 });
