@@ -66,3 +66,7 @@ Trying another approach
   - VS Code is happy again
 - Tested `ng test --watch` successfully
 - Starting app `ng serve` and visiting http://localhost:4200/ works
+
+Other stuff
+- Was seeing we have paths configured in the tsconfig.json on one of my clients
+- Made jest-extended and paths live in harmony

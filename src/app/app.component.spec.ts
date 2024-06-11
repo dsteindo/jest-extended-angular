@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { AppComponent } from '@app/app.component';
+import { firstValueFrom } from 'rxjs';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -29,5 +30,12 @@ describe('AppComponent', () => {
 
   it('should apply jest-extended matcher', () => {
     expect(true).toBeTrue();
-  })
+  });
+
+  it('some more testing', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    app.ngOnInit();
+    expect(await firstValueFrom(app.emitter)).toBeFalse();
+  });
 });
