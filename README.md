@@ -27,7 +27,7 @@ Angular setup
     - Doesn't work as I don't have Chrome installed ;) 
 
 
-Visual studio
+Visual Studio Code
 - Open C:\projects\jest-extended-angular
 - CMD
   - `npm i -D jest jest-environment-jsdom`
@@ -70,3 +70,8 @@ Trying another approach
 Other stuff
 - Was seeing we have paths configured in the tsconfig.json on one of my clients
 - Made jest-extended and paths live in harmony
+- Summary
+  - global.d.ts → added `import 'jest-extended';` is needed for Visual Studio Code to recognize extended matchers
+  - tsconfig.json → removed "files" and added "paths" (they don't work co-existend for one reason or another)
+  - jest.config.js → added module mappers so the paths added in tsconfig.json are resolved (as jest is not aware of paths on runtime)
+  - added "jest-extended" to "types" in tsconfig.spec.json to ensure the extended matchers are recognized at compile time `ng test`
